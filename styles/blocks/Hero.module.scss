@@ -1,0 +1,51 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+  color: #fff;
+  background: #000;
+  margin-bottom: 100px;
+  width: 100vw;
+  height: 100vh;
+  .heroInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .heroHeading {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 115px;
+    // margin: 0 auto 115px;
+    .titleName {
+      // font-size: 68px;
+      font-size: 4.25rem;
+      letter-spacing: 21.7px;
+      margin-bottom: 20px;
+    }
+    .titleJob {
+      // font-size: 48px;
+      font-size: 3rem;
+      letter-spacing: 4px;
+      margin-bottom: 16px;
+    }
+  }
+  .titleSkills {
+    font-size: 1rem;
+  }
+  .titleCopy {
+    // font-size: 25px;
+    font-size: 1.563rem;
+    margin-bottom: 120px;
+  }
+  .scrollWrapper {
+    text-align: center;
+    .arrowIcon {
+      margin-bottom: 20px;
+    }
+    .scrollText {
+      letter-spacing: 1px;
+    }
+  }
+}

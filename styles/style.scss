@@ -1,0 +1,3 @@
+// CSS Modulesを使うとローカルのCSSにスコープを効かせることができる
+// .textをタグのクラス名にしたい場合、<p className={styles.text}></>
+// のようにstyles.を先頭につける必要がある。

@@ -1,0 +1,27 @@
+@import "../base/_colors.scss";
+
+.about {
+  padding: 68px;
+  border: 2px solid $main-color;
+  width: 800px;
+  margin: 0 auto 100px;
+  .sectionInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .profileText {
+      line-height: 1.5;
+      margin-bottom: 60px;
+      strong {
+        color: $main-color;
+        font-weight: bold;
+      }
+      p:nth-child(1) {
+        margin-bottom: 16px;
+      }
+      p:nth-child(2) {
+        margin-bottom: 16px;
+      }
+    }
+  }
+}

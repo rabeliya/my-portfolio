@@ -1,0 +1,44 @@
+@import "../base/_colors.scss";
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  .footerNav {
+    display: flex;
+    .listItem {
+      border: 1px solid #c7c7c7;
+      width: calc(100vw / 3);
+      height: 50px;
+      text-align: center;
+    }
+    a {
+      display: inline-block;
+      position: relative;
+      width: 100%;
+      line-height: 50px;
+      &:before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border: 0;
+        border-top: solid 2px $main-color;
+        border-right: solid 2px $main-color;
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        margin-top: -4px;
+      }
+    }
+  }
+  .copyrights {
+    font-size: 12px;
+    padding: 20px;
+    width: 100vw;
+    text-align: center;
+  }
+}

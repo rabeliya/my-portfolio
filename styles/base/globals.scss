@@ -1,0 +1,157 @@
+@import "colors";
+
+// this global scss defines
+// Heading ** shadow ** image ** button ** pointer ** pankuzu List
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// *************************   Heading h2
+
+.subHeading {
+  color: $main-color;
+  position: relative;
+  // font-size: 24px;
+  font-size: 1.5rem;
+  padding-left: 23px;
+  margin-bottom: 70px;
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    background: $main-color;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    bottom: 4px;
+    width: 10px;
+    height: 10px;
+    background: $main-color;
+  }
+}
+
+// *************************   Image shadow
+
+.colorShadowImage {
+  position: relative;
+  padding: 0 30px 30px 0;
+  margin-bottom: 60px;
+  &:before {
+    content: "";
+    width: 233px;
+    height: 233px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background-color: $main-color;
+  }
+}
+
+// *************************   shadow
+
+// worksの作品以外のshadowに適用している
+// buttonはこのshadowで実装している
+$shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+
+.shadow {
+  box-shadow: $shadow;
+}
+
+// *************************   Button
+button {
+  align-items: center;
+  border: none;
+  user-select: none;
+  &:active {
+    box-shadow: none;
+  }
+  &:focus {
+    outline: 0;
+  }
+}
+
+.leadButton {
+  width: 256px;
+  padding: 16px;
+  text-align: center;
+  background-color: $main-color;
+  color: #fff;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.contactButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 256px;
+  height: 53px;
+  padding: 2px;
+  color: #016df0;
+  background: #fff;
+  font-weight: bold;
+  border-radius: 18px;
+  background: linear-gradient(to right, #04c0fc 0%, #0059ed 100%);
+  margin: 0 auto 100px;
+  .contactButtonInner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    height: calc(100% - 4px);
+    width: calc(100% - 4px);
+    line-height: 92%;
+    border-radius: 13px;
+    &:hover {
+      background: linear-gradient(to right, #04c0fc 0%, #0059ed 100%);
+      color: #fff;
+      transition: 0.6s;
+    }
+  }
+}
+
+.pointer {
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+// *************************   Pankuzu List
+
+.breadcrumbTrail {
+  display: flex;
+  margin: 100px 0 60px;
+  .listItem:not(:last-child) {
+    position: relative;
+    padding-right: 20px;
+    margin-right: 20px;
+    // border-bottom: 1px solid #000;
+    text-decoration: underline;
+    &:after {
+      color: $main-color;
+      content: ">";
+      position: absolute;
+      right: 0;
+    }
+  }
+}

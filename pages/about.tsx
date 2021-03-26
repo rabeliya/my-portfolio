@@ -2,7 +2,10 @@ import HeadComponent from '../components/Head'
 import TheHeader from '../components/TheHeader'
 import TheFooter from '../components/TheFooter'
 import Link from 'next/link';
+import styles from '../styles/pages/AboutPage.module.scss'
+import Image from 'next/image'
 
+// ぱんくずリストをコンポーネント化したい
 export default function AboutPage({profile}) {
   return (
     <>
@@ -19,20 +22,39 @@ export default function AboutPage({profile}) {
             </Link>
           </li>
           <li className='listItem'>
-            <Link href="#">
+            <Link href="/about">
               <a>ABOUT</a>
             </Link>
           </li>
         </ul>
-        <h1>About</h1>
-        <ul>
-          {profile.map(profile => (
-            <li key={profile.id}>
-              {profile.title}
-              {profile.body}
-            </li>
-          ))}
-        </ul>
+        <section className={styles.about}>
+          <h1 className='subHeading'>About</h1>
+          <div className={styles.sectionInner}>
+            <div className={styles.imgWrapper}>
+              <div className='colorShadowImage'>
+                <Image
+                  src={`/me@2x-min.jpg`}
+                  width={233}
+                  height={233}
+                  layout={'fixed'}
+                  loading={'lazy'}
+                />
+              </div>
+            </div> 
+            <div className={styles.textWrapper}>
+              <ul>
+                {profile.map(profile => (
+                  <li key={profile.id}>
+                    <h2>{profile.title}</h2>
+                    <div dangerouslySetInnerHTML=
+                      {{ __html:`${profile.body}` }}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
       </main>
       <TheFooter/>
     </>

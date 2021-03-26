@@ -2,19 +2,8 @@ import styles from '../styles/blocks/Works.module.scss'
 import Image from 'next/image'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
+import LeadBtn from './parts/LeadBtn'
 
-// export default function AboutSection() {
-//   return (
-//     <section className={styles.works}>
-//       <h2 className='subHeading'>WORKS</h2>
-//       <div className={styles.sectionInner}>
-//         <ul>
-//         </ul>
-//         <button className='leadButton shadow pointer'>他の作品を見る {`>`}</button>
-//       </div>
-//     </section>
-//   )
-// }
 export default function WorksSection({ works } :any) {
   return (
     <section className={styles.works}>
@@ -23,7 +12,6 @@ export default function WorksSection({ works } :any) {
         <ul className={styles.workList}>
           {works.map(work => (
             <li key={work.id} className={styles.workItem}>
-              {/* カードと画像の隙間がわからん!!! */}
               <Link href={`/works/${work.id}`}>
                 <a>
                   <Image 
@@ -40,7 +28,7 @@ export default function WorksSection({ works } :any) {
             </li>
           ))}
         </ul>
-        <button className='leadButton shadow pointer'><Link href='/work'><a>他の作品を見る {`>`}</a></Link></button>
+        <LeadBtn path={`/work`} text={`他の作品を見る`}/>
       </div>
     </section>
   )

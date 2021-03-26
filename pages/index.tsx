@@ -37,19 +37,5 @@ export const getStaticProps = async () => {
     }
   }
 }
-
-// export const getStaticProps = async () => {
-//   const key = {
-//     headers: {'X-API-KEY': process.env.API_KEY}
-//   }
-//   const data = await fetch('https://k-portfolio.microcms.io/api/v1/profile',key)
-//   .then(res => res.json())
-//   .catch(() => null)
-//   return {
-//     props: {
-//       profile: data.contents
-//     }
-//   }
-// }
 // npm run devで開発サーバーを立ち上げる
 // npm run build で静的ファイルを生成できる

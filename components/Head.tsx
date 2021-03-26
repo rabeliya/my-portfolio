@@ -5,7 +5,7 @@ interface Props {
   description: string;
 }
 
-export default function HeaderComponent({ title, description }: Props): JSX.Element {
+export default function HeaderComponent({ title, description }: Props) {
   return (
     <Head>
       <title>{title}</title>

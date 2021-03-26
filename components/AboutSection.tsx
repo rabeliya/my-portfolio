@@ -1,6 +1,6 @@
 import styles from '../styles/blocks/About.module.scss'
 import Image from 'next/image'
-import Link from 'next/link'
+import LeadBtn from './parts/LeadBtn'
 
 export default function AboutSection() {
   return (
@@ -21,7 +21,7 @@ export default function AboutSection() {
           <p>お客様とは<strong>パートナー</strong>として関わり並走しながら制作を進めます。お客様との対話の中でお客様が抱える思いを明確にし、デザインに落とし込みます。そして<strong>メンテナンス性</strong>を意識してコーディングを行い、Webサイトを制作します。</p>
           <p>お問い合わせページよりご依頼やお問い合せを承っています。</p>
         </div>
-        <button className='leadButton shadow pointer'><Link href='/about'><a>詳細プロフィールを見る {`>`}</a></Link></button>
+        <LeadBtn path={`/about`} text={`詳細を見る`}/>
       </div>
     </section>
   )

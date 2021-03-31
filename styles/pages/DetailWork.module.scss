@@ -1,0 +1,15 @@
+@import "../base/colors";
+
+.work {
+  padding: 70px;
+  border: 2px solid $main-color;
+  width: 800px;
+  margin: 0 auto 100px;
+  .sectionInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // overflow:hiddenによってswiperの見切れに対応
+    // overflow: hidden;
+  }
+}

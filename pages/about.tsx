@@ -1,12 +1,18 @@
 import HeadComponent from '../components/Head'
 import TheHeader from '../components/TheHeader'
 import TheFooter from '../components/TheFooter'
-import Link from 'next/link';
-import styles from '../styles/pages/AboutPage.module.scss'
 import Image from 'next/image'
+import styles from '../styles/pages/AboutPage.module.scss'
+import TopicPath from '../components/parts/TopicPath'
+import { GetStaticProps } from 'next'
 
-// ぱんくずリストをコンポーネント化したい
-export default function AboutPage({profile}) {
+interface Profile {
+  body: string,
+  title: string,
+  id: string
+}
+
+export default function AboutPage({ profile }) {
   return (
     <>
       <HeadComponent
@@ -15,18 +21,12 @@ export default function AboutPage({profile}) {
       />
       <TheHeader/>
       <main>
-        <ul className='breadcrumbTrail'>
-          <li className='listItem'>
-            <Link href="/">
-              <a>HOME</a>
-            </Link>
-          </li>
-          <li className='listItem'>
-            <Link href="/about">
-              <a>ABOUT</a>
-            </Link>
-          </li>
-        </ul>
+        <TopicPath
+          childTitle={'ABOUT'}
+          childPath={'/about'}
+          detailTitle={''}
+          detailPath={''}
+        />
         <section className={styles.about}>
           <h1 className='subHeading'>About</h1>
           <div className={styles.sectionInner}>
@@ -43,7 +43,7 @@ export default function AboutPage({profile}) {
             </div> 
             <div className={styles.textWrapper}>
               <ul>
-                {profile.map(profile => (
+                {profile.map((profile: Profile) => (
                   <li key={profile.id}>
                     <h2>{profile.title}</h2>
                     <div dangerouslySetInnerHTML=
@@ -56,16 +56,16 @@ export default function AboutPage({profile}) {
           </div>
         </section>
       </main>
-      <TheFooter/>
+      <TheFooter isContactBtn={true} isBackBtn={true}/>
     </>
   )
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const key = {
     headers: {'X-API-KEY': process.env.API_KEY}
   }
-  const data = await fetch('https://k-portfolio.microcms.io/api/v1/profile',key)
+  const data = await fetch('https://k-portfolio.microcms.io/api/v1/profile?fields=body,title,id',key)
   .then(res => res.json())
   .catch(() => null)
   return {

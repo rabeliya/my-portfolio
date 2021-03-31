@@ -1,7 +1,7 @@
 @import "colors";
 
 // this global scss defines
-// Heading ** shadow ** image ** button ** pointer ** pankuzu List
+// Heading ** shadow ** image ** button ** pointer
 
 html,
 body {
@@ -110,6 +110,30 @@ button {
   }
 }
 
+.backButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 256px;
+  height: 53px;
+  line-height: 53px;
+  text-align: center;
+  background-color: $main-color;
+  color: #fff;
+  border-radius: 12px;
+  font-weight: bold;
+  margin: 0 auto 55px;
+  &:after {
+    color: #fff;
+    content: ">";
+    font-size: 20px;
+    position: absolute;
+    right: 20px;
+    top: 1px;
+  }
+}
+
 .contactButton {
   display: flex;
   align-items: center;
@@ -144,34 +168,5 @@ button {
   cursor: pointer;
   &:hover {
     opacity: 0.8;
-  }
-}
-
-// *************************   Pankuzu List
-
-.breadcrumbTrail {
-  display: flex;
-  width: 800px;
-  margin: 100px auto 60px;
-  .listItem:not(:last-child) {
-    position: relative;
-    padding-right: 20px;
-    margin-right: 20px;
-    // border-bottom: 1px solid #000;
-    // text-decoration: underline;
-    &:before {
-      content: "";
-      position: absolute;
-      top: 20px;
-      left: 10%;
-      width: 30px;
-      border-bottom: 2px solid #000;
-    }
-    &:after {
-      content: ">";
-      color: $main-color;
-      position: absolute;
-      right: 0;
-    }
   }
 }

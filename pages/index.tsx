@@ -4,7 +4,7 @@ import TheFooter from '../components/TheFooter'
 import HeroSection from '../components/HeroSection'
 import AboutSection from '../components/AboutSection'
 import WorksSection from '../components/WorksSection'
-// import Link from 'next/link'
+import { GetStaticProps } from 'next'
 
 export default function Home({works}:any) {
   return (
@@ -19,16 +19,16 @@ export default function Home({works}:any) {
         <AboutSection/>
         <WorksSection works={works}/>
       </main>
-      <TheFooter/>
+      <TheFooter isContactBtn={true} isBackBtn={false}/>
     </>
   )
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const key = {
     headers: {'X-API-KEY': process.env.API_KEY}
   }
-  const data = await fetch('https://k-portfolio.microcms.io/api/v1/works',key)
+  const data = await fetch('https://k-portfolio.microcms.io/api/v1/works?fields=images,id&orders=-publishedAt&limit=3',key)
   .then(res => res.json())
   .catch(() => null)
   return {

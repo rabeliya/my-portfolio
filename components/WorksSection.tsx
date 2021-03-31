@@ -28,7 +28,7 @@ export default function WorksSection({ works } :any) {
             </li>
           ))}
         </ul>
-        <LeadBtn path={`/work`} text={`他の作品を見る`}/>
+        <LeadBtn path={`/works`} text={`他の作品を見る`}/>
       </div>
     </section>
   )

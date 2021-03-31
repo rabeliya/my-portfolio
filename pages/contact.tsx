@@ -21,7 +21,7 @@ export default function ContactPage({profile}) {
           ))}
         </ul>
       </main>
-      <TheFooter/>
+      <TheFooter isContactBtn={false} isBackBtn={true}/>
     </>
   )
 }

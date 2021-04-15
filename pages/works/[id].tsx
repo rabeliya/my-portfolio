@@ -14,7 +14,9 @@ SwiperCore.use([Navigation,Pagination,Autoplay])
 interface Work {
   body: string,
   id: string,
-  title: string
+  title: string,
+  client: string,
+  skill: string
 }
 
 export default function WorksIs({work}) {
@@ -47,38 +49,43 @@ export default function WorksIs({work}) {
         <section className={styles.work}>
           <h1 className='subHeading'>{work.title}</h1>
           <div className={styles.sectionInner}>
-            <Swiper
-              spaceBetween={30}
-              slidesPerView={1}
-              centeredSlides={true}
-              // autoplay={
-              //   {
-              //     delay: 3000, disableOnInteraction: false
-              //   }
-              // }
-              pagination={{clickable: true}}
-              navigation
-              width={664}
-            >
-              {images.map(image => {
-                return(
-                  <SwiperSlide key={image.id}>
-                    <Image
-                      src={image.url}
-                      width={664}
-                      height={498}
-                      layout={'fixed'}
-                    />
-                  </SwiperSlide>
-                )
-              })}
-            </Swiper>
+            <h2 className={styles.titleHeading}>{work.title}</h2>
+            <div className={styles.swiperContainer}>
+              <Swiper
+                spaceBetween={30}
+                slidesPerView={1}
+                centeredSlides={false}
+                autoplay={
+                  {
+                    delay: 6000, disableOnInteraction: false
+                  }
+                }
+                pagination={{clickable: true}}
+                navigation
+                width={664}
+              >
+                {images.map(image => {
+                  return(
+                    <SwiperSlide key={image.id}>
+                      <Image
+                        src={image.url}
+                        width={664}
+                        height={498}
+                        layout={'fixed'}
+                      />
+                    </SwiperSlide>
+                  )
+                })}
+              </Swiper>              
+            </div>
+            <p className={styles.clientName}>{work.client}</p>
+            <p className={styles.skills}>{work.skill}</p>
+            <div className={styles.bodyContents} dangerouslySetInnerHTML={{
+              __html:`${work.body}`
+              }}
+            />
           </div>
         </section>
-        <div dangerouslySetInnerHTML={{
-          __html:`${work.body}`
-          }}
-        />
       <TheFooter isContactBtn={true} isBackBtn={true}/>
       </main>
     </>
@@ -103,7 +110,7 @@ export const getStaticProps: GetStaticProps = async context => {
   const key = {
     headers: {'X-API-KEY': process.env.API_KEY}
   }
-  const data: Work = await fetch(`https://k-portfolio.microcms.io/api/v1/works/${id}?fields=body,id,title`,key)
+  const data: Work = await fetch(`https://k-portfolio.microcms.io/api/v1/works/${id}?fields=body,id,title,client,skill`,key)
   .then(res => res.json())
   .catch(() => null)
   return {

@@ -28,7 +28,7 @@ export default function AboutPage({ profile }) {
           detailPath={''}
         />
         <section className={styles.about}>
-          <h1 className='subHeading'>About</h1>
+          <h1 className='subHeading'>ABOUT</h1>
           <div className={styles.sectionInner}>
             <div className={styles.imgWrapper}>
               <div className='colorShadowImage'>

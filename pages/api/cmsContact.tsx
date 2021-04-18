@@ -14,7 +14,9 @@ const contact = async (
     
   }
 
-  const content = await fetch(`https://k-portfolio.microcms.io/api/v1/contacts/`,{
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? ''
+
+  const content = await fetch(baseUrl + '/contacts',{
     headers: {'X-WRITE-API-KEY': X_WRITE_KEY},
     body: JSON.stringify(req.body)
   })

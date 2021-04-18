@@ -62,10 +62,11 @@ export default function ContactForm() {
   const onSubmit = async (contact:Contact): Promise<void> => {
     try {
       // ここのURLはホスティング後に設定する
-      await fetch(baseUrl + '/api/cmsContact', {
+      await fetch(baseUrl + '/contacts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json; charaset=utjf-8',
+          'X-WRITE_KEY': process.env.X_WRITE_KEY
         },
         body: JSON.stringify(contact),
       }).then(res => {

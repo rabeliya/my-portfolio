@@ -66,7 +66,7 @@ export default function ContactForm() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json; charaset=utjf-8',
-          'X-WRITE_KEY': process.env.X_WRITE_KEY
+          'X-WRITE-API-KEY': process.env.X_WRITE_KEY
         },
         body: JSON.stringify(contact),
       }).then(res => {

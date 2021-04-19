@@ -111,7 +111,7 @@ export default function ContactForm() {
         お問い合わせ内容{ errors.body && (<span className={styles.requiredLabel}>{errors.body?.message}</span>) }
       </label>
       <textarea 
-        name="body-contents"
+        name="body"
         id="body"
         cols={30}
         rows={10}

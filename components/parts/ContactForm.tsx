@@ -1,8 +1,7 @@
 import styles from '../../styles/parts/Form.module.scss'
 import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
 import React, {useCallback } from 'react'
-import Router, { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import Contact from '../../src/models/Contact'
 import * as yup from 'yup'
 
@@ -61,7 +60,6 @@ export default function ContactForm() {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? ''
   const onSubmit = async (contact:Contact): Promise<void> => {
     try {
-      // ここのURLはホスティング後に設定する
       await fetch(baseUrl + '/contacts', {
         method: 'POST',
         headers: {

@@ -17,7 +17,10 @@ const contact = async (
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? ''
 
   const content = await fetch(baseUrl + '/contacts',{
-    headers: {'X-WRITE-API-KEY': X_WRITE_KEY},
+    headers: {
+      'X-WRITE-API-KEY': X_WRITE_KEY,
+      "Content-Type": "application/json; charset=utf-8",
+    },
     body: JSON.stringify(req.body)
   })
   .then(() => 'Created')
@@ -30,3 +33,5 @@ const contact = async (
   res.status(200).json({ message: 'OK' })
   res.end('Contact enabled')
 }
+
+export default contact

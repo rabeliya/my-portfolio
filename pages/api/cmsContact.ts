@@ -9,14 +9,11 @@ const contact = async (
 
   // req.messageにすると型エラー
   if(!isContact(req.body) || typeof X_WRITE_KEY === 'undefined') {
-    console.log('this error occurs by dont exist isContact(req.body) or X_WRITE_KEY is undefined');
     return res.status(404).end()
-    
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? ''
-
-  const content = await fetch(baseUrl + '/contacts',{
+  const content = await fetch('https://k-portfolio.microcms.io/api/v1/contacts',{
+    method: 'POST',
     headers: {
       'X-WRITE-API-KEY': X_WRITE_KEY,
       "Content-Type": "application/json; charset=utf-8",

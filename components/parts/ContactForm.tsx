@@ -5,9 +5,6 @@ import { useRouter } from 'next/router'
 import Contact from '../../src/models/Contact'
 import * as yup from 'yup'
 
-// react-form-hook導入まで。
-
- // リファレンス通り
 const useYupValidationResolver = validationSchema =>
   useCallback(
     async data => {
@@ -46,7 +43,6 @@ const validationSchema = yup.object().shape({
 
 export default function ContactForm() {
 
-// useStateの値がエラー表示に関わっているため、ここをふかぼる
     const resolver = useYupValidationResolver(validationSchema)
     const { handleSubmit, register, formState: { errors } } = useForm<Contact> ({
       // blurイベントは要素がマウスなどのポインティング・デバイスやタブキーなどでフォーカスを失ったタイミングで発生する
@@ -54,17 +50,14 @@ export default function ContactForm() {
       resolver
     })
 
-  // const onSubmit = data => console.log(data)
   const router = useRouter()
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? ''
   const onSubmit = async (contact:Contact): Promise<void> => {
     try {
-      await fetch(baseUrl + '/contacts', {
+      await fetch('/api/cmsContact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json; charaset=utjf-8',
-          'X-WRITE-API-KEY': `${process.env.X_WRITE_KEY}`
         },
         body: JSON.stringify(contact),
       }).then(res => {
@@ -77,8 +70,6 @@ export default function ContactForm() {
       void router.push('/contact/error')
     }
   }
- 
-  // -- と --の項目に不備があります　のメッセージを出したい
 
   return (
     <form

@@ -52,23 +52,36 @@ export default function ContactForm() {
 
   const router = useRouter()
 
-  const onSubmit = async (contact:Contact): Promise<void> => {
+  const onSubmit = async (contact:Contact) => {
+    console.log(contact);
+
     try {
-      await fetch('/api/cmsContact', {
+      const res = await fetch('https://k-portfolio.microcms.io/api/v1/contacts',{
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json; charaset=utjf-8',
-        },
         body: JSON.stringify(contact),
-      }).then(res => {
-        if(!res.ok) {
-          throw Error(`${res.status} ${res.statusText}`)
+        headers: {
+          'X-WRITE-API-KEY': process.env.X_WRITE_KEY,
+          'Content-Type': 'application/json'
         }
       })
-      void router.push('/contact/success')
-    } catch(err) {
+      const json = await res.json()
+
+      if(json.success) {
+        void router.push('/contact/success')
+      }
+    } catch (e) {
+      console.log('An error occurred', e)
       void router.push('/contact/error')
     }
+    // axios({
+    //   method: 'POST',
+    //   url: 'https://k-portfolio.microcms.io/api/v1/contacts',
+    //   data: JSON.stringify(contact),
+    //   headers: {
+    //     'X-WRITE-API-KEY': X_WRITE_KEY,
+    //     'Content-Type': 'application/json; charaset=utjf-8',
+    //   },
+    // })
   }
 
   return (

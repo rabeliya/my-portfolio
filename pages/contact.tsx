@@ -34,7 +34,7 @@ export default function ContactPage({contact}) {
           </div>
         </section>
       </main>
-      <TheFooter isContactBtn={false} isBackBtn={true}/>
+      <TheFooter isContactBtn={false} isBackBtn={false}/>
     </>
   )
 }

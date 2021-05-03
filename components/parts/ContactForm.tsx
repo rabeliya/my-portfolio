@@ -1,9 +1,9 @@
 import styles from '../../styles/parts/Form.module.scss'
 import { useForm } from 'react-hook-form'
 import React, {useCallback } from 'react'
-import { useRouter } from 'next/router'
 import Contact from '../../src/models/Contact'
 import * as yup from 'yup'
+import Router from 'next/router'
 
 const useYupValidationResolver = validationSchema =>
   useCallback(
@@ -45,48 +45,36 @@ export default function ContactForm() {
 
     const resolver = useYupValidationResolver(validationSchema)
     const { handleSubmit, register, formState: { errors } } = useForm<Contact> ({
-      // blurイベントは要素がマウスなどのポインティング・デバイスやタブキーなどでフォーカスを失ったタイミングで発生する
       mode: 'onBlur',
       resolver
     })
 
-  const router = useRouter()
 
   const onSubmit = async (contact:Contact) => {
-    console.log(contact);
-
-    try {
-      const res = await fetch('https://k-portfolio.microcms.io/api/v1/contacts',{
+    if(confirm('この内容で送信しますか？')){
+      await fetch('https://k-portfolio.microcms.io/api/v1/contacts',{
         method: 'POST',
         body: JSON.stringify(contact),
         headers: {
-          'X-WRITE-API-KEY': process.env.X_WRITE_KEY,
+          'X-WRITE-API-KEY': process.env.x_write_key,
           'Content-Type': 'application/json'
         }
       })
-      const json = await res.json()
-
-      if(json.success) {
-        void router.push('/contact/success')
-      }
-    } catch (e) {
-      console.log('An error occurred', e)
-      void router.push('/contact/error')
+      .then(response => response.json())
+      .then(result => {
+        console.log('Success:',result)
+        Router.push('/contact/success')
+      })
+      .catch(error => {
+        console.error('Error', error)
+        Router.push('/contact/error')
+      })
     }
-    // axios({
-    //   method: 'POST',
-    //   url: 'https://k-portfolio.microcms.io/api/v1/contacts',
-    //   data: JSON.stringify(contact),
-    //   headers: {
-    //     'X-WRITE-API-KEY': X_WRITE_KEY,
-    //     'Content-Type': 'application/json; charaset=utjf-8',
-    //   },
-    // })
   }
 
   return (
     <form
-      action=""
+      method="post"
       name="contactForm"
       className={styles.formWrapper}
       onSubmit={handleSubmit(onSubmit)}
@@ -121,6 +109,10 @@ export default function ContactForm() {
         rows={10}
         placeholder="お問い合わせ内容をご記入ください。サイト改修のご依頼の場合はページ数や納期についてもご記入ください。"
         {...register("body")}
+      />
+      <input
+        type="hidden"
+        name="honeypot"
       />
       <input type="submit"/>
     </form>

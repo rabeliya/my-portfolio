@@ -41,8 +41,8 @@ export default function WorkPage({ works,totalCount, limit }:Props) {
   return (
     <>
       <HeadComponent
-        title={`Kan Hikida's Portfolio`}
-        description={`Webデザイナー疋田貫のポートフォリオサイトです`}
+        title={`Kan Hikida's Portfolio -作品集ページ`}
+        description={`Webデザイナー疋田貫のポートフォリオサイトです。今までの作品を一覧でまとめています。`}
       />
       <TheHeader/>
       <main>
@@ -63,9 +63,9 @@ export default function WorkPage({ works,totalCount, limit }:Props) {
                     <Image 
                       src={work.images.url}
                       alt={work.title}
-                      width={256}
-                      height={144}
-                      layout={'fixed'}
+                      width={368}
+                      height={208}
+                      layout={'intrinsic'}
                       loading={'lazy'}
                     />
                   </a>

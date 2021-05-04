@@ -19,7 +19,7 @@ export default function WorksSection({ works } :any) {
                     alt={work.title}
                     width={392}
                     height={221}
-                    layout={'fixed'}
+                    layout={'intrinsic'}
                     loading={'lazy'}
                     className='pointer'
                   />

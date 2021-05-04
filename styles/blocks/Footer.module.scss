@@ -1,16 +1,21 @@
 @import "../base/_colors.scss";
+@import "../mixins/responsive";
 
 .footer {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #fff;
-  width: 100vw;
+  width: calc(100vw - 15px);
+  // width: 97.6vw;
   .footerNav {
     display: flex;
+    width: 100%;
+    background: #f0f0f0;
+    color: #333;
     .listItem {
       border: 1px solid #c7c7c7;
-      width: calc(100vw / 3);
+      width: calc(100% / 3);
       height: 50px;
       text-align: center;
     }
@@ -33,13 +38,15 @@
         top: 50%;
         right: 20px;
         margin-top: -4px;
+        @include responsive(md) {
+          display: none;
+        }
       }
     }
   }
   .copyrights {
     font-size: 12px;
-    padding: 20px;
-    width: 100vw;
+    padding: 20px 0;
     text-align: center;
   }
 }

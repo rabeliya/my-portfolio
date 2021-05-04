@@ -1,10 +1,18 @@
 @import "../base/_colors.scss";
+@import "../mixins/responsive";
 
 .contact {
   padding: 70px;
   border: 2px solid $main-color;
   width: 800px;
   margin: 0 auto 100px;
+  @include responsive(md) {
+    width: 100%;
+    border: none;
+    padding: 70px 16px;
+    padding-top: 40px;
+    margin-bottom: 50px;
+  }
   .sectionInner {
     display: flex;
     flex-direction: column;
@@ -12,6 +20,9 @@
     justify-content: space-between;
     width: 560px;
     margin: 0 auto;
+    @include responsive(md) {
+      width: 100%;
+    }
     .bodyContents {
       p {
         line-height: 1.3;

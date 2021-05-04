@@ -1,0 +1,23 @@
+.thanksWrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  .thanksText {
+    color: #17c2eb;
+    font-size: 68px;
+    font-weight: bold;
+    margin-bottom: 32px;
+  }
+
+  .thanksSubText {
+    margin-bottom: 150px;
+  }
+
+  .dateText {
+    margin-bottom: 70px;
+  }
+}

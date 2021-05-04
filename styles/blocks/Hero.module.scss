@@ -1,3 +1,5 @@
+@import "../mixins/responsive";
+
 .hero {
   display: flex;
   align-items: center;
@@ -8,6 +10,9 @@
   margin-bottom: 100px;
   width: 100vw;
   height: 100vh;
+  @include responsive(md) {
+    text-align: center;
+  }
   .heroInner {
     display: flex;
     flex-direction: column;
@@ -17,18 +22,24 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 115px;
-    // margin: 0 auto 115px;
     .titleName {
       // font-size: 68px;
       font-size: 4.25rem;
       letter-spacing: 21.7px;
       margin-bottom: 20px;
+      @include responsive(md) {
+        font-size: 34px;
+        letter-spacing: normal;
+      }
     }
     .titleJob {
       // font-size: 48px;
       font-size: 3rem;
       letter-spacing: 4px;
       margin-bottom: 16px;
+      @include responsive(md) {
+        font-size: 20px;
+      }
     }
   }
   .titleSkills {
@@ -38,6 +49,9 @@
     // font-size: 25px;
     font-size: 1.563rem;
     margin-bottom: 120px;
+    @include responsive(md) {
+      font-size: 1rem;
+    }
   }
   .scrollWrapper {
     text-align: center;

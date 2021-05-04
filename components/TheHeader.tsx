@@ -1,7 +1,7 @@
 import styles from '../styles/blocks/Header.module.scss'
 import Link from 'next/link';
 
-export default function TheFooter() {
+export default function TheHeader() {
   return (
     <header className={styles.header}>
       <Link href="/">

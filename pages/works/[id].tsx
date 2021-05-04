@@ -20,12 +20,6 @@ interface Work {
 }
 
 export default function WorksIs({work}) {
-  // const images = 
-  // [
-  //   '/slides/slide1/work1_slide1.jpg',
-  //   '/slides/slide1/work1_slide2.jpg',
-  //   '/slides/slide1/work1_slide3.jpg',
-  // ]
   const images = 
   [
     {url: '/slides/slide1/work1_slide1.jpg', id: 1},
@@ -62,7 +56,7 @@ export default function WorksIs({work}) {
                 }
                 pagination={{clickable: true}}
                 navigation
-                width={664}
+                // width={664}
               >
                 {images.map(image => {
                   return(
@@ -71,7 +65,7 @@ export default function WorksIs({work}) {
                         src={image.url}
                         width={664}
                         height={498}
-                        layout={'fixed'}
+                        layout={'intrinsic'}
                       />
                     </SwiperSlide>
                   )

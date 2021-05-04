@@ -1,10 +1,18 @@
 @import "../base/_colors.scss";
+@import "../mixins/responsive";
 
 .works {
   padding: 70px;
   border: 2px solid $main-color;
   width: 800px;
   margin: 0 auto 100px;
+  @include responsive(md) {
+    width: 100%;
+    border: none;
+    padding: 70px 16px;
+    padding-top: 40px;
+    margin-bottom: 50px;
+  }
   .sectionInner {
     display: flex;
     flex-direction: column;
@@ -15,18 +23,36 @@
       margin-bottom: 50px;
       width: 600px;
       flex-wrap: wrap;
+      @include responsive(md) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
       // 作品集のはじめの2作品以外のtopにmarginを加える
       .workItem:not(:first-child) {
         margin-top: 30px;
+        @include responsive(md) {
+          margin-top: 60px;
+        }
       }
       .workItem:nth-child(2) {
         margin: 0;
+        @include responsive(md) {
+          margin-top: 60px;
+        }
       }
       .workItem {
         width: 256px;
         height: 200px;
         box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.16);
         background: #fff;
+        @include responsive(md) {
+          width: 100%;
+          height: auto;
+          max-height: 200px;
+          max-width: 368px;
+        }
         & > a {
           display: inline-flex;
           align-items: center;

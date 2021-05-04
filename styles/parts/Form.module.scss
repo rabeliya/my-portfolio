@@ -1,7 +1,14 @@
+@import "../mixins/responsive";
+
+$form-bg-color: #f5f5f5;
+
 .formWrapper {
   display: flex;
   flex-direction: column;
   width: 550px;
+  @include responsive(md) {
+    width: 100%;
+  }
   label {
     margin-bottom: 16px;
     .requiredLabel {
@@ -9,20 +16,60 @@
       margin-left: 16px;
     }
   }
-  input {
+  input,
+  textarea {
     font-size: 16px;
+    background-color: $form-bg-color;
+    border-radius: 6px;
+    border: 1px #727272 solid;
+  }
+  input {
     height: 50px;
     margin-bottom: 40px;
     padding-left: 16px;
+    @include responsive(md) {
+      max-width: 400px;
+    }
     &::placeholder {
       color: #c3c3c3;
     }
   }
   textarea {
-    font-size: 16px;
     padding: 16px 16px 0 16px;
+    margin-bottom: 70px;
     &::placeholder {
       color: #c3c3c3;
     }
+  }
+  .submitButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 256px;
+    height: 53px;
+    line-height: 53px;
+    text-align: center;
+    background-color: #ffa802;
+    color: #fff;
+    border-radius: 12px;
+    font-weight: bold;
+    margin: 0 auto 55px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    border: none;
+    background-color: #919191;
+    &:active {
+      box-shadow: none;
+    }
+    &:focus {
+      outline: 0;
+    }
+    cursor: pointer;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+  .btnActive {
+    background-color: #ffa802;
   }
 }

@@ -4,6 +4,7 @@ import React, {useCallback } from 'react'
 import Contact from '../../src/models/Contact'
 import * as yup from 'yup'
 import Router from 'next/router'
+import classNames from 'classnames/bind'
 
 const useYupValidationResolver = validationSchema =>
   useCallback(
@@ -44,7 +45,7 @@ const validationSchema = yup.object().shape({
 export default function ContactForm() {
 
     const resolver = useYupValidationResolver(validationSchema)
-    const { handleSubmit, register, formState: { errors } } = useForm<Contact> ({
+    const { handleSubmit, register, formState: { errors, isDirty, isValid } } = useForm<Contact> ({
       mode: 'onBlur',
       resolver
     })
@@ -56,12 +57,14 @@ export default function ContactForm() {
         method: 'POST',
         body: JSON.stringify(contact),
         headers: {
-          'X-WRITE-API-KEY': process.env.x_write_key,
+          'X-WRITE-API-KEY': process.env.X_WRITE_KEY,
           'Content-Type': 'application/json'
         }
       })
       .then(response => response.json())
       .then(result => {
+        console.log(process.env.X_WRITE_KEY);
+        
         console.log('Success:',result)
         Router.push('/contact/success')
       })
@@ -71,6 +74,14 @@ export default function ContactForm() {
       })
     }
   }
+
+  // classNames
+
+  const cx = classNames.bind(styles);
+  const buttonClass = cx(
+    {submitButton: true},
+    {btnActive: isValid && isDirty}
+  )
 
   return (
     <form
@@ -114,7 +125,10 @@ export default function ContactForm() {
         type="hidden"
         name="honeypot"
       />
-      <input type="submit"/>
+      <input
+        type="submit"
+        className={buttonClass}
+      />
     </form>
   )
 }

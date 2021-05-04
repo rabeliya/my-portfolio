@@ -68,9 +68,9 @@ export default function WorkPage({ works,totalCount, limit }: Props) {
                     <Image 
                       src={work.images.url}
                       alt={work.title}
-                      width={256}
-                      height={144}
-                      layout={'fixed'}
+                      width={368}
+                      height={208}
+                      layout={'intrinsic'}
                       loading={'lazy'}
                     />
                   </a>

@@ -1,29 +1,53 @@
 @import "../base/_colors.scss";
+@import "../mixins/responsive";
 
 .about {
   padding: 70px;
   border: 2px solid $main-color;
   width: 800px;
   margin: 0 auto 100px;
+  @include responsive(md) {
+    width: 100%;
+    border: none;
+    padding: 70px 16px;
+    padding-top: 40px;
+    margin-bottom: 50px;
+  }
   .sectionInner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 560px;
     margin: 0 auto;
+    @include responsive(md) {
+      flex-direction: column;
+      width: 100%;
+    }
     .textWrapper {
+      @include responsive(md) {
+        width: 300px;
+      }
       ul li:first-child {
         // 一番上の細い線
         border-top: 1px solid $main-color;
       }
+      li {
+        padding-bottom: 16px;
+        border-bottom: 1px solid $main-color;
+        @include responsive(md) {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-top: 16px;
+        }
+      }
       h2 {
+        color: #333;
         font-weight: bold;
         padding-top: 16px;
         margin-bottom: 16px;
       }
       p {
-        padding-bottom: 16px;
-        border-bottom: 1px solid $main-color;
         line-height: 1.4;
       }
     }

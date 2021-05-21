@@ -20,7 +20,7 @@ export default function SuccessPage() {
           <HomeBtn/>
         </div>
       </main>
-      <TheFooter isContactBtn={false} isBackBtn={false}/>
+      <TheFooter />
     </>
   )
 }

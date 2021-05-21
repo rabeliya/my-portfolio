@@ -20,7 +20,7 @@ export default function ErrorPage() {
           <BackBtn/>
         </div>
       </main>
-      <TheFooter isContactBtn={false} isBackBtn={false}/>
+      <TheFooter />
     </>
   )
 }

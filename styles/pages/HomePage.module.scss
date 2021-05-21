@@ -1,0 +1,21 @@
+@import "../base/colors";
+@import "../mixins/responsive";
+
+.main {
+  background-color: $bg-color;
+  background-image: url(../../public/pc/pc_bg_drop01.svg),
+    url(../../public/pc/pc_bg_drop02.svg), url(../../public/pc/pc_bg_drop03.svg),
+    url(../../public/pc/pc_footer_wave.svg);
+  background-repeat: no-repeat, no-repeat, no-repeat no-repeat;
+  background-position: calc(50vw - 700px) 750px, right 900px, left 1750px,
+    left bottom;
+  background-size: auto auto, auto auto, auto auto, 100vw auto;
+  padding-bottom: 100px;
+  @include responsive(md) {
+    background-image: url(../../public/sm/sm_bg_drop01.svg),
+      url(../../public/sm/sm_bg_drop02.svg),
+      url(../../public/sm/sm_footer_wave.svg);
+    background-position: 74vw 700px, left 1850px, left bottom;
+    background-size: auto auto, auto auto, 100vw auto;
+  }
+}

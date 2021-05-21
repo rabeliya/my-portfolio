@@ -4,7 +4,9 @@ import TheFooter from '../components/TheFooter'
 import HeroSection from '../components/HeroSection'
 import AboutSection from '../components/AboutSection'
 import WorksSection from '../components/WorksSection'
+import ContactBtn from '../components/parts/ContactBtn'
 import { GetStaticProps } from 'next'
+import styles from '../styles/pages/HomePage.module.scss'
 
 export default function Home({works}:any) {
   return (
@@ -14,12 +16,13 @@ export default function Home({works}:any) {
         description={`Webデザイナー疋田貫のポートフォリオサイトです。ウェブ制作のお仕事を承っています。ご依頼やご相談がありましたらお問い合わせページからお問い合わせくださいませ。`}
       />
       <TheHeader/>
-      <main>
+      <main className={styles.main}>
         <HeroSection/>
         <AboutSection/>
         <WorksSection works={works}/>
+        <ContactBtn/>
       </main>
-      <TheFooter isContactBtn={true} isBackBtn={false}/>
+      <TheFooter/>
     </>
   )
 }

@@ -5,7 +5,13 @@ export default function TheHeader() {
   return (
     <header className={styles.header}>
       <Link href="/">
-        <a className={styles.logoIcon}>LOGO</a>
+        <a>
+          <img
+            src="/common/logo.png"
+            alt="サイトのロゴ"
+            className={styles.logoIcon} 
+          />
+        </a>
       </Link>
     </header>
   )

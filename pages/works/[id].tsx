@@ -2,6 +2,7 @@
 import TheFooter from '../../components/TheFooter'
 import TheHeader from '../../components/TheHeader'
 import HeadComponent from '../../components/Head'
+import ContactBtn from '../../components/parts/ContactBtn'
 import TopicPath from '../../components/parts/TopicPath'
 import styles from '../../styles/pages/DetailWork.module.scss'
 import { GetStaticProps } from 'next'
@@ -28,12 +29,12 @@ export default function WorksIs({work}) {
   ]
   return (
     <>
-      <TheHeader/>
       <HeadComponent
         title={`Kan Hikida's Portfolio -${work.title}`}
         description={`Webデザイナー疋田貫のポートフォリオサイトの作品詳細ページです。個人制作からお仕事まで掲載しています。お仕事をご依頼される際の参考になればと思います。`}
       />
-      <main>
+      <TheHeader/>
+      <main className={styles.main}>
         <TopicPath
           childTitle={'WORKS'}
           childPath={'/works'}
@@ -41,7 +42,7 @@ export default function WorksIs({work}) {
           detailPath={`/works/${work.id}`}
         />
         <section className={styles.work}>
-          <h1 className='subHeading'>{work.title}</h1>
+          <h1 className='subHeading'>個別作品ページ</h1>
           <div className={styles.sectionInner}>
             <h2 className={styles.titleHeading}>{work.title}</h2>
             <div className={styles.swiperContainer}>
@@ -56,7 +57,6 @@ export default function WorksIs({work}) {
                 }
                 pagination={{clickable: true}}
                 navigation
-                // width={664}
               >
                 {images.map(image => {
                   return(
@@ -80,8 +80,9 @@ export default function WorksIs({work}) {
             />
           </div>
         </section>
-      <TheFooter isContactBtn={true} isBackBtn={true}/>
+        <ContactBtn/>
       </main>
+      <TheFooter/>
     </>
   )
 }

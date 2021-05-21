@@ -5,6 +5,7 @@ import Image from 'next/image'
 import styles from '../styles/pages/AboutPage.module.scss'
 import TopicPath from '../components/parts/TopicPath'
 import { GetStaticProps } from 'next'
+import ContactBtn from '../components/parts/ContactBtn'
 
 interface Profile {
   body: string,
@@ -20,7 +21,7 @@ export default function AboutPage({ profile }) {
         description={`Webデザイナー疋田貫のポートフォリオサイトのプロフィールページです。経歴や技能についての詳細を記載しています。ご依頼のきっかけになれば幸いです。他にもご不明な点はお問い合わせくださいませ。`}
       />
       <TheHeader/>
-      <main>
+      <main className={styles.main}>
         <TopicPath
           childTitle={'ABOUT'}
           childPath={'/about'}
@@ -33,7 +34,7 @@ export default function AboutPage({ profile }) {
             <div className={styles.imgWrapper}>
               <div className='colorShadowImage'>
                 <Image
-                  src={`/me@2x-min.jpg`}
+                  src={`/common/me@2x-min.jpg`}
                   width={233}
                   height={233}
                   layout={'fixed'}
@@ -55,8 +56,9 @@ export default function AboutPage({ profile }) {
             </div>
           </div>
         </section>
+        <ContactBtn/>
       </main>
-      <TheFooter isContactBtn={true} isBackBtn={true}/>
+      <TheFooter/>
     </>
   )
 }

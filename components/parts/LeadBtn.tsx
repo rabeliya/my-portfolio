@@ -11,7 +11,9 @@ export default function LeadBtn({ path, text } :Props) {
     return
   }
   return (
-    <button className='leadButton shadow pointer' onClick={clickHandler}>
+    <button  className='leadButton shadow pointer'
+      onClick={clickHandler}
+    >
       <p>
         {text}
       </p>

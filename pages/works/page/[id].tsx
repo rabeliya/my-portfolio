@@ -2,6 +2,7 @@ import HeadComponent from '../../../components/Head'
 import TheHeader from '../../../components/TheHeader'
 import TheFooter from '../../../components/TheFooter'
 import TopicPath from '../../../components/parts/TopicPath'
+import ContactBtn from '../../../components/parts/ContactBtn'
 import { Pagination } from '@material-ui/lab';
 import styles from '../../../styles/pages/WorksPage.module.scss'
 import React,{ useCallback } from 'react'
@@ -46,11 +47,11 @@ export default function WorkPage({ works,totalCount, limit }: Props) {
   return (
     <>
       <HeadComponent
-        title={`Kan Hikida's Portfolio`}
-        description={`Webデザイナー疋田貫のポートフォリオサイトです`}
+        title={`Kan Hikida's Portfolio - 作品集ページ`}
+        description={`Webデザイナー疋田貫のポートフォリオサイトです。このページでは作品集を掲載しています。`}
       />
       <TheHeader/>
-      <main>
+      <main className={styles.main}>
         <TopicPath
           childTitle={'WORKS'}
           childPath={'/works'}
@@ -80,7 +81,7 @@ export default function WorkPage({ works,totalCount, limit }: Props) {
             </ul>
             <Pagination
               count={Math.ceil(totalCount / limit)}
-              shape='rounded'              
+              shape='rounded'     
               color='primary'
               variant='outlined'
               onChange={handleChangePage}
@@ -88,8 +89,9 @@ export default function WorkPage({ works,totalCount, limit }: Props) {
             />
           </div>
         </section>
+        <ContactBtn/>
       </main>
-      <TheFooter isContactBtn={true} isBackBtn={true}/>
+      <TheFooter/>
     </>
   )
 }

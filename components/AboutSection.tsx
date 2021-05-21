@@ -9,7 +9,7 @@ export default function AboutSection() {
       <div className={styles.sectionInner}>
         <div className='colorShadowImage'>
           <Image
-            src={`/me@2x-min.jpg`}
+            src={`/common/me@2x-min.jpg`}
             width={233}
             height={233}
             layout={'fixed'}

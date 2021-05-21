@@ -14,7 +14,7 @@ export default function ContactPage({contact}) {
         description={`Webデザイナー疋田貫のポートフォリオサイトのお問い合わせページです。サイト制作やリニューアルについてのご相談がありましたら、是非フォームからお問い合わせください。`}
       />
       <TheHeader/>
-      <main>
+      <main className={styles.main}>
         <TopicPath
           childTitle={'CONTACT'}
           childPath={'/contact'}
@@ -34,7 +34,7 @@ export default function ContactPage({contact}) {
           </div>
         </section>
       </main>
-      <TheFooter isContactBtn={false} isBackBtn={false}/>
+      <TheFooter/>
     </>
   )
 }

@@ -1,20 +1,20 @@
-@import "../base/_colors.scss";
+@import "../base/_colors";
 @import "../mixins/responsive";
 
 .footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
-  width: calc(100vw - 15px);
-  // width: 97.6vw;
+  background-color: #404040;
+  color: #fff;
+  width: 100vw;
   .footerNav {
     display: flex;
     width: 100%;
-    background: #f0f0f0;
-    color: #333;
     .listItem {
-      border: 1px solid #c7c7c7;
+      border-width: 0 1px 1px 1px;
+      border-color: #9c9c9c;
+      border-style: solid;
       width: calc(100% / 3);
       height: 50px;
       text-align: center;
@@ -29,8 +29,8 @@
         width: 6px;
         height: 6px;
         border: 0;
-        border-top: solid 2px $main-color;
-        border-right: solid 2px $main-color;
+        border-top: solid 2px #fff;
+        border-right: solid 2px #fff;
         -ms-transform: rotate(45deg);
         -webkit-transform: rotate(45deg);
         transform: rotate(45deg);
@@ -45,7 +45,7 @@
     }
   }
   .copyrights {
-    font-size: 12px;
+    font-size: 16px;
     padding: 20px 0;
     text-align: center;
   }

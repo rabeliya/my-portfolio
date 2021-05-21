@@ -2,6 +2,7 @@
 import HeadComponent from '../components/Head'
 import TheHeader from '../components/TheHeader'
 import TheFooter from '../components/TheFooter'
+import ContactBtn from '../components/parts/ContactBtn'
 import styles from '../styles/pages/WorksPage.module.scss'
 import { Pagination } from '@material-ui/lab';
 import React,{ useCallback } from 'react'
@@ -45,7 +46,7 @@ export default function WorkPage({ works,totalCount, limit }:Props) {
         description={`Webデザイナー疋田貫のポートフォリオサイトです。今までの作品を一覧でまとめています。`}
       />
       <TheHeader/>
-      <main>
+      <main className={styles.main}>
         <TopicPath
           childTitle={'WORKS'}
           childPath={'/works'}
@@ -82,8 +83,9 @@ export default function WorkPage({ works,totalCount, limit }:Props) {
             />
           </div>
         </section>
+        <ContactBtn/>
       </main>
-      <TheFooter isContactBtn={true} isBackBtn={true}/>
+      <TheFooter/>
     </>
   )
 }

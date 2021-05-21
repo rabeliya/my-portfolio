@@ -5,28 +5,12 @@
 .topicPath {
   display: flex;
   width: 800px;
-  margin: 100px auto 60px;
+  margin: 0 auto 60px;
   color: $sub-text-color;
   @include responsive(md) {
     width: 100%;
     padding-left: 16px;
     margin-bottom: 40px;
-  }
-  .listItem:last-child {
-    position: relative;
-    &:before {
-      content: "";
-      position: absolute;
-      bottom: -6px;
-      display: inline-block;
-      width: 30px;
-      height: 2px;
-      left: 53%;
-      -webkit-transform: translateX(-50%);
-      transform: translateX(-50%);
-      background-color: $sub-text-color;
-      border-radius: 2px;
-    }
   }
   .listItem:not(:last-child) {
     position: relative;
@@ -34,7 +18,6 @@
     margin-right: 20px;
     &:after {
       content: ">";
-      color: $main-color;
       position: absolute;
       right: 0;
     }

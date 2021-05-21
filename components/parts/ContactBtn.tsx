@@ -6,10 +6,8 @@ export default function ContactBtn() {
     return
   }
   return (
-    <button className='contactButton pointer' onClick={clickHandler}>
-      <div className="contactButtonInner">
-        お問い合わせ
-      </div>
+    <button className='contactButton pointer shadow' onClick={clickHandler}>
+      お問い合わせ
     </button>
   )
 }

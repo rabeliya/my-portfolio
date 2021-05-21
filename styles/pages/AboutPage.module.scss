@@ -1,54 +1,66 @@
 @import "../base/_colors.scss";
 @import "../mixins/responsive";
 
-.about {
-  padding: 70px;
-  border: 2px solid $main-color;
-  width: 800px;
-  margin: 0 auto 100px;
+.main {
+  background-image: url("../../public/pc/pc_footer_wave.svg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  padding: 100px 0;
   @include responsive(md) {
-    width: 100%;
-    border: none;
-    padding: 70px 16px;
-    padding-top: 40px;
-    margin-bottom: 50px;
+    background-image: url("../../public/sm/sm_footer_wave.svg");
+    background-position: bottom;
+    background-size: 100vw auto;
   }
-  .sectionInner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 560px;
-    margin: 0 auto;
+  .about {
+    background-color: $bg-color;
+    padding: 70px;
+    border: 2px solid $main-color;
+    width: 800px;
+    margin: 0 auto 100px;
     @include responsive(md) {
-      flex-direction: column;
       width: 100%;
+      border: none;
+      padding: 70px 16px;
+      padding-top: 40px;
+      margin-bottom: 50px;
+      background-color: rgba(255, 255, 255, 0);
     }
-    .textWrapper {
+    .sectionInner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 560px;
+      margin: 0 auto;
       @include responsive(md) {
-        width: 300px;
+        flex-direction: column;
+        width: 100%;
       }
-      ul li:first-child {
-        // 一番上の細い線
-        border-top: 1px solid $main-color;
-      }
-      li {
-        padding-bottom: 16px;
-        border-bottom: 1px solid $main-color;
+      .textWrapper {
         @include responsive(md) {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding-top: 16px;
+          width: 300px;
         }
-      }
-      h2 {
-        color: #333;
-        font-weight: bold;
-        padding-top: 16px;
-        margin-bottom: 16px;
-      }
-      p {
-        line-height: 1.4;
+        ul li:first-child {
+          // 一番上の細い線
+          border-top: 1px solid $main-color;
+        }
+        li {
+          padding-bottom: 16px;
+          border-bottom: 1px solid $main-color;
+          @include responsive(md) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 16px;
+          }
+        }
+        h2 {
+          color: #333;
+          padding-top: 16px;
+          margin-bottom: 16px;
+        }
+        p {
+          line-height: 1.4;
+        }
       }
     }
   }

@@ -2,7 +2,9 @@
 @import "../mixins/responsive";
 
 .main {
+  width: 100%;
   background-image: url("../../public/pc/pc_footer_wave.svg");
+  background-size: 100% auto;
   background-repeat: no-repeat;
   background-position: bottom;
   padding: 100px 0;

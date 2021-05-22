@@ -7,7 +7,7 @@
   align-items: center;
   background-color: #404040;
   color: #fff;
-  width: 100vw;
+  width: 100%;
   .footerNav {
     display: flex;
     width: 100%;
@@ -18,28 +18,28 @@
       width: calc(100% / 3);
       height: 50px;
       text-align: center;
-    }
-    a {
-      display: inline-block;
-      position: relative;
-      width: 100%;
-      line-height: 50px;
-      &:before {
-        content: "";
-        width: 6px;
-        height: 6px;
-        border: 0;
-        border-top: solid 2px #fff;
-        border-right: solid 2px #fff;
-        -ms-transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
-        transform: rotate(45deg);
-        position: absolute;
-        top: 50%;
-        right: 20px;
-        margin-top: -4px;
-        @include responsive(md) {
-          display: none;
+      a {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        line-height: 50px;
+        &:before {
+          content: "";
+          width: 6px;
+          height: 6px;
+          border: 0;
+          border-top: solid 2px #fff;
+          border-right: solid 2px #fff;
+          -ms-transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          position: absolute;
+          top: 50%;
+          right: 20px;
+          margin-top: -4px;
+          @include responsive(md) {
+            display: none;
+          }
         }
       }
     }

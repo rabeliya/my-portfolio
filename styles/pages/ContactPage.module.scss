@@ -3,8 +3,10 @@
 
 .main {
   background-image: url(../../public/pc/pc_footer_wave.svg);
+  width: 100%;
   background-repeat: no-repeat;
   background-position: bottom;
+  background-size: 100% auto;
   padding: 100px 0;
   @include responsive(md) {
     background-image: url("../../public/sm/sm_footer_wave.svg");

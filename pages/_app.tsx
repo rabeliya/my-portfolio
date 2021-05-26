@@ -1,12 +1,14 @@
 // グローバルなCSSはこのファイルに読み込む
 import 'reset-css'
 import '../styles/base/globals.scss'
-import 'swiper/swiper.scss'
-import 'swiper/components/pagination/pagination.scss'
-import 'swiper/components/navigation/navigation.scss'
+import SimpleReactLightbox from 'simple-react-lightbox'
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <SimpleReactLightbox>
+      <Component {...pageProps} />
+    </SimpleReactLightbox>
+  )
 }
 
 export default MyApp

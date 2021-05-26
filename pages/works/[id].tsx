@@ -1,4 +1,5 @@
 // this is works detail page
+import React, { useState } from 'react'
 import TheFooter from '../../components/TheFooter'
 import TheHeader from '../../components/TheHeader'
 import HeadComponent from '../../components/Head'
@@ -6,11 +7,7 @@ import ContactBtn from '../../components/parts/ContactBtn'
 import TopicPath from '../../components/parts/TopicPath'
 import styles from '../../styles/pages/DetailWork.module.scss'
 import { GetStaticProps } from 'next'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper'
-import Image from 'next/image'
-
-SwiperCore.use([Navigation,Pagination,Autoplay])
+import { SRLWrapper } from "simple-react-lightbox"
 
 interface Work {
   body: string,
@@ -20,13 +17,20 @@ interface Work {
   skill: string
 }
 
+
 export default function WorksIs({work}) {
+
   const images = 
   [
-    {url: '/slides/slide1/work1_slide1.jpg', id: 1},
-    {url: '/slides/slide1/work1_slide2.jpg', id: 2},
-    {url: '/slides/slide1/work1_slide3.jpg', id: 3}
+    'slide1.jpg',
+    'slide2.jpg',
+    'slide3.jpg',
   ]
+
+  const options = {
+    
+  }
+  
   return (
     <>
       <HeadComponent
@@ -45,32 +49,24 @@ export default function WorksIs({work}) {
           <h1 className='subHeading'>個別作品ページ</h1>
           <div className={styles.sectionInner}>
             <h2 className={styles.titleHeading}>{work.title}</h2>
-            <div className={styles.swiperContainer}>
-              <Swiper
-                spaceBetween={30}
-                slidesPerView={1}
-                centeredSlides={false}
-                autoplay={
-                  {
-                    delay: 6000, disableOnInteraction: false
-                  }
-                }
-                pagination={{clickable: true}}
-                navigation
-              >
-                {images.map(image => {
-                  return(
-                    <SwiperSlide key={image.id}>
-                      <Image
-                        src={image.url}
-                        width={664}
-                        height={498}
-                        layout={'intrinsic'}
+            <div className={styles.thumbnails}>
+              <SRLWrapper className={styles.slideContent}>
+                {images.map((image,index) => {
+                  return (
+                    <a
+                      href={`/slides/${ work.id + '/' + image}`}
+                      className={styles.imgLink}
+                      key={index}
+                    >
+                      <img
+                        src={`/slides/${ work.id + '/' + image}`}
+                        alt={image}
+                        className={styles.slideImg}
                       />
-                    </SwiperSlide>
+                    </a>
                   )
                 })}
-              </Swiper>              
+              </SRLWrapper>
             </div>
             <p className={styles.clientName}>{work.client}</p>
             <p className={styles.skills}>{work.skill}</p>

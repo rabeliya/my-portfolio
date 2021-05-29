@@ -17,8 +17,8 @@ export default function WorksSection({ works } :any) {
                   <Image 
                     src={work.images.url}
                     alt={work.title}
-                    width={392}
-                    height={221}
+                    width={368}
+                    height={208}
                     layout={'intrinsic'}
                     loading={'lazy'}
                     className='pointer'

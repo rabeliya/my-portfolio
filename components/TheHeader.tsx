@@ -7,9 +7,11 @@ export default function TheHeader() {
       <Link href="/">
         <a>
           <img
-            src="/common/logo.png"
+            src="/common/logo.svg"
             alt="サイトのロゴ"
             className={styles.logoIcon} 
+            width={81}
+            height={54}
           />
         </a>
       </Link>

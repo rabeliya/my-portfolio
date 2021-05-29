@@ -73,6 +73,7 @@ export default function WorkPage({ works,totalCount, limit }: Props) {
                       height={208}
                       layout={'intrinsic'}
                       loading={'lazy'}
+                      quality={100}
                     />
                   </a>
                 </Link>
@@ -116,7 +117,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const key = {
     headers: {'X-API-KEY': process.env.API_KEY}
   }
-  const data = await fetch(`https://k-portfolio.microcms.io/api/v1/works?fields=id,images&orders=-publishedAt&offset=${(id -1) * 6}&limit=6`,key)
+  const data = await fetch(`https://k-portfolio.microcms.io/api/v1/works?fields=id,images&orders=publishedAt&offset=${(id -1) * 6}&limit=6`,key)
   .then(res => res.json())
   .catch(() => null)
   return {

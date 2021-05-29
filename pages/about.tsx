@@ -39,6 +39,7 @@ export default function AboutPage({ profile }) {
                   height={233}
                   layout={'fixed'}
                   loading={'lazy'}
+                  quality={100}
                 />
               </div>
             </div> 

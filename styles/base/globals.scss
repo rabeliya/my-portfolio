@@ -85,6 +85,7 @@ button {
   align-items: center;
   border: none;
   user-select: none;
+  font-size: 0.9rem;
   &:active {
     box-shadow: none;
   }
@@ -146,10 +147,9 @@ button {
   padding: 2px;
   color: #000;
   background: #fff500;
-  font-size: 1rem;
-  font-weight: bold;
   border-radius: 18px;
   margin: 0 auto;
+  font-weight: bold;
   @include responsive(md) {
     width: 70%;
   }

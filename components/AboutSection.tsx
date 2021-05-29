@@ -14,6 +14,7 @@ export default function AboutSection() {
             height={233}
             layout={'fixed'}
             loading={'lazy'}
+            quality={100}
           />
         </div>
         <div className={styles.profileText}>

@@ -94,7 +94,7 @@ export const getStaticProps = async () => {
   const key = {
     headers: {'X-API-KEY': process.env.API_KEY}
   }
-  const data = await fetch('https://k-portfolio.microcms.io/api/v1/works?fields=id,images&orders=-publishedAt&limit=6',key)
+  const data = await fetch('https://k-portfolio.microcms.io/api/v1/works?fields=id,images&orders=publishedAt&limit=6',key)
   .then(res => res.json())
   .catch(() => null)
   return {

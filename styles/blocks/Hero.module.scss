@@ -14,6 +14,7 @@
     background: url("../../public/sm/sm_kv-min.png") no-repeat;
     background-position: top;
     background-size: 100% auto;
+    margin-bottom: 50px;
   }
   .heroInner {
     display: flex;
@@ -22,10 +23,11 @@
     width: 800px;
     height: 480px;
     background: url("../../public/common/kv_portfolio.svg") no-repeat;
-    background-position: 90px 150px;
+    background-position: 90px 180px;
     @include responsive(md) {
       align-items: center;
-      background-position: center 200px;
+      background-position: center 230px;
+      background-size: 90%;
     }
   }
   .heroHeading {
@@ -35,18 +37,21 @@
     .titleName {
       font-size: 4.5rem;
       font-weight: bold;
+      margin-bottom: 5px;
       @include responsive(md) {
         font-size: 3.5rem;
         color: #dadada;
+        margin-bottom: 0px;
       }
     }
     .titleJob {
       font-size: 3rem;
       font-weight: bold;
-      margin-bottom: 5px;
+      margin-bottom: 12px;
       color: #0079ef;
       @include responsive(md) {
         font-size: 2.5rem;
+        margin-bottom: 15px;
       }
     }
   }
@@ -68,7 +73,7 @@
     text-align: center;
     @include responsive(md) {
       position: static;
-      margin-top: 220px;
+      margin-top: 200px;
     }
     .arrowIcon {
       width: 22px;

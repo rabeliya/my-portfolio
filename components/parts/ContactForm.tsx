@@ -38,7 +38,7 @@ const useYupValidationResolver = validationSchema =>
 
 const validationSchema = yup.object().shape({
   name: yup.string().required('名前は必須項目です'),
-  email: yup.string().email('メールアドレスの形式が正しくありません').required('メールアドレスは必須です'),
+  email: yup.string().email('形式が正しくありません').required('必須です'),
   body: yup.string().required('内容は必須項目です'),
 })
 

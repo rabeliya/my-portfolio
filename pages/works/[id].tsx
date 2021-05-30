@@ -28,7 +28,9 @@ export default function WorksIs({work}) {
   ]
 
   const options = {
-    
+    caption: {
+      showCaption: false
+    }
   }
   
   return (
@@ -50,7 +52,10 @@ export default function WorksIs({work}) {
           <div className={styles.sectionInner}>
             <h2 className={styles.titleHeading}>{work.title}</h2>
             <div className={styles.thumbnails}>
-              <SRLWrapper className={styles.slideContent}>
+              <SRLWrapper 
+                options={options}
+                className={styles.slideContent}
+              >
                 {images.map((image,index) => {
                   return (
                     <a

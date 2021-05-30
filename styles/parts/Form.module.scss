@@ -55,6 +55,8 @@ $form-bg-color: #f5f5f5;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
     border: none;
     background-color: #919191;
+    // ios button style reset
+    -webkit-appearance: none;
     &:active {
       box-shadow: none;
     }
